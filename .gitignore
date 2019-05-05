@@ -1,0 +1,48 @@
+
+public class fizzBuzz {
+	public static void main(String[] args) {
+		try{
+		System.out.println("请输入想要输出的行数：");
+		
+		@SuppressWarnings("resource")
+		Scanner scanner=new Scanner(System.in);
+		int n=scanner.nextInt();
+		
+		@SuppressWarnings("unused")
+		List<String> list=fizzBuzz(n);
+		
+		System.out.println("[");
+		for(int i=0;i<list.size();i++){
+			System.out.println(list.get(i));
+		}
+		System.out.println("]");
+
+		
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	public static List<String> fizzBuzz(int n) {
+		//创建一个集合
+		List<String> list=new ArrayList<String>();
+		
+		
+		for(int i=1;i<=n;i++){//1、首先，想要打印n个字符串，就要使用循环，并将值打印到集合中
+				
+			if((i%3==0)&&(i%5==0)){//循环到既是3又是5的倍数
+				list.add("FizzBuzz");
+				
+			}else if(i%5==0){//循环到5的倍数
+				list.add("Buzz");
+				
+			}else if(i%3==0){//循环到3的倍数
+				list.add("Fizz");
+				
+			}else //循环正常的是1、2、4...
+				list.add(i+"");
+		}
+		
+		return list;
+	}
+}
